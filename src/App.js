@@ -3,20 +3,19 @@
 
 import { useState } from "react";
 import Barra from "./Barra";
-import Tienda from "./Tienda";
-import Tienda2 from "./Tienda2";
+import Alojamiento from "./Alojamiento";
 import Login from "./Login";
-import SubirArticulo from "./SubirArticulo";
+import SubirAlojamiento from "./SubirAlojamiento";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const App = () => {
 
   const auth = getAuth();
-  const [ventana, setVentana] = useState(auth.currentUser ? "Tienda" : "Login")
+  const [ventana, setVentana] = useState(auth.currentUser ? "Alojamiento" : "Login")
   onAuthStateChanged(auth, (user) => {
     if (user && ventana == "Login") {
       const uid = user.uid;
-      setVentana("Tienda")
+      setVentana("Alojamiento")
       // ...
     } else {
       // User is signed out
@@ -32,8 +31,8 @@ const App = () => {
 
       {
         ventana === "Login" ? <Login setVentana={setVentana}></Login> :
-          ventana === "Tienda" ? <Tienda2 Mias={false}></Tienda2> :
-              ventana === "SubirArticulo" ? <SubirArticulo setVentana={setVentana}></SubirArticulo> :
+          ventana === "Alojamiento" ? <Alojamiento Mias={false}></Alojamiento> :
+              ventana === "SubirAlojamiento" ? <SubirAlojamiento setVentana={setVentana}></SubirAlojamiento> :
                 "No se ha encontrado la pestaña"
       }
     </>

@@ -9,11 +9,11 @@ const Barra = ({ setVentana }) => {
 				setVentana("Login")
 			}} >Cerrar sesión</button>
 			<button onClick={() => {
-				setVentana("Tienda")
-			}} >Tienda</button>
+				setVentana("Alojamiento")
+			}} >Alojamiento</button>
 			<button onClick={() => {
-				setVentana("SubirArticulo")
-			}} >Subir Articulo</button>
+				setVentana("SubirAlojamiento")
+			}} >Subir Alojamiento</button>
 		</div>
 	)
 }
